@@ -16,14 +16,21 @@ for i in range(N - 7):
 
         for x in range(i, i + 8):
             for y in range(j, j + 8):
-                if (x + y) % 2 == 0:
-                    # 시작점과 색이 같아야 함
-                    if board[x][y] == 'B': modify_W += 1
+                if (x + y) % 2 == 0: # 시작점과 색이 같아야 함
+                    if board[x][y] == 'B': modify_W += 1 
+                    # 시작점이 W이고, 시작점과 색이 "같아야" 하는데 해당 칸의 색은 B이다.
+                    # 따라서 modify_W 1 추가
+
                     if board[x][y] == 'W': modify_B += 1
-                else:
-                    # 시작점과 색이 달라야 함
+                    # 시작점이 B이고, 시작점과 색이 "같아야" 하는데 해당 칸의 색은 W이다.
+                    # 따라서 modify_B 1 추가
+                else: # 시작점과 색이 달라야 함
                     if board[x][y] == 'B': modify_B += 1
+                    # 시작점이 B이고, 시작점과 색이 "달라야" 하는데 해당 칸의 색은 B이다.
+                    # 따라서 modify_B 1 추가
                     if board[x][y] == 'W': modify_W += 1
+                    # 시작점이 W이고, 시작점과 색이 "달라야" 하는데 해당 칸의 색은 W이다.
+                    # 따라서 modify_W 1 추가
                 
         modify.append(min(modify_B, modify_W))
 
